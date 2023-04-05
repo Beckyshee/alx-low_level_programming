@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * is_prime - shows whether a number is prime or not.
+ * prime - shows whether a number is prime or not.
  * @a: just a number.
  * @b: val to be iterated.
  * Return: 1 if a = prime number | 0 if a !  prime number.
@@ -17,6 +17,7 @@ int prime(unsigned int a, unsigned int b)
 	}
 	return (0 + prime(a, b + 1));
 }
+
 /**
  * is_prime_number - shows whether a number is a prime number.
  * @n: number.
@@ -30,5 +31,5 @@ int is_prime_number(int n)
 		return (0);
 	if (n == 1)
 		return (0);
-	return (is_prime(n, 2));
+	return (prime(n, 2));
 }
