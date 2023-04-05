@@ -23,7 +23,7 @@ int strg_len(char *strg, int l, int i)
 int _strglen_recursion(char *s)
 {
 	if (*s != '\0')
-		return (1 + _strlen_recursion(s + 1));
+		return (1 + _strglen_recursion(s + 1));
 
 	return (0);
 }
