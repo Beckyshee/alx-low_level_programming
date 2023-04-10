@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 /**
@@ -6,18 +7,18 @@
  */
 int main(void)
 {
-	int x = 0, y = 0;
+	int r = 0, c = 0;
 	time_t t;
 
 	srand((unsigned int) time(&t));
 	while (c < 2772)
 	{
-		x = rand() % 128;
-		if ((y + x) > 2772)
+		r = rand() % 128;
+		if ((c + r) > 2772)
 			break;
-		y = y + x;
-		printf("%y", x);
+		c = c + r;
+		printf("%c", r);
 	}
-	printf("%y\n", (2772 - y));
+	printf("%c\n", (2772 - c));
 	return (0);
 }
