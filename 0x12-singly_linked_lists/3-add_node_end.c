@@ -9,32 +9,48 @@
 
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new, *temp;
-	size_t nchar;
+	char *dup_str;
+	list_t *new, *last;
 
 	new = malloc(sizeof(list_t));
-	if (new == NULL)
+	if (!new)
 		return (NULL);
 
-	new->str = strdup(str);
-
-	for (nchar = 0; str[nchar]; nchar++)
-		;
-
-	new->len = nchar;
-	new->next = NULL;
-	temp = *head;
-
-	if (temp == NULL)
+	dup_str = strdup(str);
+	if (!str)
 	{
-		*head = new;
+		free(new);
+		return (NULL);
 	}
+
+	new->str = dup_str;
+	new->len = _strlen(str);
+	new->next = NULL;
+
+	if (!*head)
+		*head = new;
+
 	else
 	{
-		while (temp->next != NULL)
-			temp = temp->next;
-		temp->next = new;
+		last = *head;
+		while (last->next)
+			last = last->next;
+		last->next = new;
 	}
 
 	return (*head);
+}
+
+/**
+ * _strlen - returns the length of a string
+ * @s: the string whose length is to be determined
+ * Return: the length of s
+ */
+int _strlen(const char *s)
+{
+	int i = 0;
+
+	while (*s++)
+		i++;
+	return (i);
 }
